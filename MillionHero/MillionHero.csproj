@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{529EA6E1-E4F6-4009-9E7B-3D4FB8C6E635}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MillionHero</RootNamespace>
+    <AssemblyName>MillionHero</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\ThirdParty\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="TDLib.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\TDLib.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="TDLib.UIs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\TDLib.UIs.dll</HintPath>
+    </Reference>
+    <Reference Include="TDLib.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\TDLib.Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppGlobals.cs" />
+    <Compile Include="Definitions\AIResult.cs" />
+    <Compile Include="Definitions\Answer.cs" />
+    <Compile Include="Definitions\IEVersion.cs" />
+    <Compile Include="Definitions\QuestionAppParams.cs" />
+    <Compile Include="Definitions\QuestionAppType.cs" />
+    <Compile Include="Definitions\RunningStatus.cs" />
+    <Compile Include="Definitions\Subject.cs" />
+    <Compile Include="Exceptions\NotFoundOptionException.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdbService.cs" />
+    <Compile Include="Services\AIServices\IAIService.cs" />
+    <Compile Include="Services\AIServices\BaiDuAIService.cs" />
+    <Compile Include="Services\Ocrs\BaiduOcr.cs" />
+    <Compile Include="Services\QuestionAnalyzers\AbstractQuestionAnalyzer.cs" />
+    <Compile Include="Services\QuestionAnalyzers\TopResultTipQuestionAnalyzer.cs" />
+    <Compile Include="Services\Ocrs\AbstractOcr.cs" />
+    <Compile Include="Services\Ocrs\IOcr.cs" />
+    <Compile Include="Services\QuestionAnalyzers\IQuestionAnalyzer.cs" />
+    <Compile Include="Services\EasySearchService.cs" />
+    <Compile Include="Services\MillionHeroService.cs" />
+    <Compile Include="Services\QuestionAnalyzers\OptionHappenTimesAnalyzer.cs" />
+    <Compile Include="Services\QuestionAnalyzers\PMIAnalyzer.cs" />
+    <Compile Include="Services\AIServices\UCAIService.cs" />
+    <Compile Include="UIs\FrmAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIs\FrmAuto.Designer.cs">
+      <DependentUpon>FrmAuto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIs\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIs\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIs\FrmPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIs\FrmPicker.Designer.cs">
+      <DependentUpon>FrmPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIs\FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIs\FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UIs\FrmAuto.resx">
+      <DependentUpon>FrmAuto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIs\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIs\FrmPicker.resx">
+      <DependentUpon>FrmPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIs\FrmSetting.resx">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AipSdk\AipSdk.csproj">
+      <Project>{EB8F1053-5BF8-40AE-9883-53F32011D6D9}</Project>
+      <Name>AipSdk</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

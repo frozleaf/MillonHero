@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+        <title>【简单搜索】智能答题直播间，围观Dan哥答题闯关。</title>
+        <meta name="keywords" content="简单,搜索,上网,浏览器,简单搜索,百度搜索" />
+        <meta name="description" content="点我围观简单搜索首席AI侠Dandan如何智能答题！" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html{
+                font-size: 100px;
+            }
+            body {
+                padding-top: 88px;
+                background: url("https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/mms-res/voice/soundmuseum/bg.c302c1c8.png") no-repeat;
+                background-size: contain;
+            }
+            .dt {
+                font-size: 12px;
+            }
+            .dtpadding {
+                padding: 0 .25rem;
+            }
+            .title {
+                font-size: 14px;
+                color: #000;
+                padding-bottom: 30px;
+            }
+            .headertitle {
+                font-size: 34px;
+            }
+            .smalltitle {
+                font-size: 24px;
+                margin-left: -.1rem;
+            }
+            .answerBox {
+                margin-bottom: 16px;
+             }
+            .answerBox .answerText {
+                background: #fff;
+                border:1px solid #f1f1f1;
+                box-shadow: 0 6px 14px 2px rgba(0,0,0,0.05);
+                position: relative;
+                margin-bottom: 13px;
+                padding: 12px 80px 12px 17px;
+            }
+            .answerBox .answerText.active {
+                color: #FE0060;
+                border-left: solid 2px #ff2376;
+            }
+             .answerBox .answerText span{
+                 position: absolute;
+                right: 17px;
+             }
+             .query {
+                font-size: 18px;
+                color: #000;
+                line-height:29px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;
+                overflow: hidden;
+            }
+            .answerText {
+                overflow: hidden;
+                opacity: 0.8;
+                font-size: 18px;
+                color: #999999;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+                position: relative;
+            }
+            .rightBox {
+                font-size: 13px;
+                opacity:0.8;
+                color: #999;
+            }
+            .rightBox p {
+                padding-bottom: 10px;
+            }
+            .rightBox_tip {
+                color:#555555;
+            }
+            .other {
+                line-height: 1.5;
+            }
+            .querytitle {
+                font-size: 18px;
+                color: #000000;
+                margin-bottom: 30px;
+                line-height: 29px;
+            }
+            .endbox {
+                margin-bottom: 10px;
+            }
+            .otherBox {
+                position: relative;
+            }
+            .moreshare {
+                font-size: 14px;
+                color: #3388ff;
+             }
+             .nostart a{
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                font-size: 18px;
+                color: #fff;
+                text-align: center;
+                text-decoration: none;
+                background: #FF2376;
+                box-shadow: 0 6px 14px 2px rgba(0,0,0,0.04);
+                border-radius: 5px;
+            }
+            .showrender {
+                text-align: center;
+                padding-top: 14px;
+                font-size: 13px;
+                color:#999;
+            }
+            .broadcast {
+                position: relative;
+                overflow: hidden;
+                padding-right: .24rem;
+             }
+            .otherboxImg {
+                width: 70px;
+                position: absolute;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                margin: auto;
+                top: 0;
+                padding-top: 22px;
+            }
+            .broadcast-wrap img {
+                 width: 100%;
+                display: none;
+            }
+            .broadcast-wrap img.active {
+                display: block;
+            }
+            .broadcast-wrap {
+                float: left;
+                margin-right: 70px;
+            }
+            .otherimgbox {
+                width: 70px;
+                position: absolute;
+                top: 0;
+                right: 24px;
+                height: 100%;
+            }
+            .broadcast-text {
+                position: absolute;
+                bottom: 33px;
+                left: 35px;
+                font-size: 15px;
+                color: #000;
+                height: 22px;
+                overflow: hidden;
+            }
+            .clickto a{
+             color: #3388ff;
+            }
+             @media screen and (max-width: 375px){
+                 body {
+                          padding-top: 60px;
+                      transform: scale(.9);
+                 }
+                .broadcast-text {
+                     bottom: 27px;
+                }
+                 .dt-entry-list {
+                        padding: 0 17px !important;
+                }
+            }
+            @media screen and (max-width: 320px){
+                body {
+                        padding-top: 20px;
+                        transform: scale(.9);
+                }
+                .dt-entry-list {
+                        padding: 0 17px;
+                }
+                .title {
+                    transform-origin: left;
+                    transform: scale(.9);
+                    padding: 18px;
+                }
+                .headertitle {
+                     font-size: 30px;
+                }
+                .ewm {
+                    padding-top:4px !important;
+                }
+                .ewm img {
+                      width: 100px;
+                }
+                .broadcast-text {
+                    font-size: 12px;
+                    bottom: 19px;
+                    left:25px;
+                }
+                .otherboxImg {
+                    padding-top: 0;
+                }
+                .dt-entry-list .dt-entry-item {
+                    margin-bottom: 15px !important;
+                }
+            }
+            .dt-entry-list {
+                padding: 0 25px;
+            }
+            .dt-entry-list .dt-entry-item {
+                height: 50px;
+                margin-bottom: 20px;
+                line-height: 50px;
+                font-size: 18px;
+                padding-left: 18px;
+                padding-right: 18px;
+                color: #000;
+                border-radius: 33px;
+                position: relative;
+                border: solid 1px #f1f1f1;
+                box-shadow: 0 6px 14px 2px rgba(0,0,0,0.05)
+            }
+            .dt-entry-list .dt-entry-item a{
+                color: #000;
+                text-decoration: none;
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+            .dt-entry-list .dt-entry-item .dt-entry-icon {
+                background: url(https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/mms-res/voice/soundmuseum/playbtn.233370ca.png) no-repeat;
+                height: 26px;
+                width: 26px;
+                position:absolute;
+                right: 18px;
+                top: 50%;
+                background-size: contain;
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+            }
+            .ewm {
+                font-size: 14px;
+                color: #666666;
+                text-align:center;
+                padding-top: 18px;
+            }
+            .ewm img {
+                width: 105px;
+            }
+           .showtime {
+                position: absolute;
+                right: 53px;
+                top:0px;
+                font-size: 13px;
+                color: #adadad;
+            }
+            .dt-entry-item.active a {
+                color: #fff;
+             }
+             .dt-entry-item.active .showtime{
+                color: #fff;
+             }
+            .dt-entry-item.active .dt-entry-icon{
+                    background: url("https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/mms-res/voice/soundmuseum/fenzu.11dd9fe6.png") no-repeat;
+                    background-size: contain;
+            }
+            .dt-entry-item.active {
+                background-image: linear-gradient(30deg, #FF2B72 0%, #FF6264 100%);
+                color: #fff;
+            }
+        </style>
+    </head>
+                            <body>
+        <div class="dt">
+            <div class="title dtpadding">
+                <p class="headertitle">以下是Dan哥</p>
+                <p class="headertitle">本次答题的直播间</p>
+            </div>
+            <div class="dt-entry-list">
+                            <div class="dt-entry-item ">
+                    <a href="/answer?app=xiguashipin">百万英雄(西瓜视频)</a>
+                    <span class="showtime">13:00</span>
+                    <i class="dt-entry-icon"></i>
+                </div>
+                                        <div class="dt-entry-item ">
+                    <a href="/answer?app=chongdingdahui">冲顶大会</a>
+                    <span class="showtime">13:00</span>
+                    <i class="dt-entry-icon"></i>
+                </div>
+                                        <div class="dt-entry-item active">
+                    <a href="/answer?app=huajiao">百万赢家(花椒)</a>
+                    <span class="showtime">直播中</span>
+                    <i class="dt-entry-icon"></i>
+                </div>
+                                        <div class="dt-entry-item active">
+                     <a href="/answer?app=zhishichaoren">芝士超人</a>
+                     <span class="showtime">直播中</span>
+                     <i class="dt-entry-icon"></i>
+                </div>
+                        </div>
+            <div class="ewm">
+                <img src="https://gss0.baidu.com/9rkZbzqaKgQUohGko9WTAnF6hhy/mms-res/voice/soundmuseum/jdzy.54bd2397.png">
+                <p>下载简单搜索</p>
+            </div>
+        </div>
+    </body>
+</html><!--22865206390220283658011812-->
+<script> var _trace_page_logid = 2286520639; </script><!--22865279250315632138011812-->
+<script> var _trace_page_logid = 2286527925; </script>
